@@ -24,8 +24,53 @@ def palindrome?(string, n=0)
   end
 end
 
-puts palindrome?('cat')
-puts palindrome?('kayak')
-puts palindrome?('cannac')
-puts palindrome?('cats')
+def bottle_counter(n)
+  if n == 0
+    puts "No more bottles of beer on the wall."
+  else
+    puts "#{n} bottles of bear on the wall. Take one down, pass it around, #{n-1} bottles of beer on the wall."
+    bottle_counter(n-1)
+  end
+end
+
+def fib(n)
+  if n == 1
+    return 1
+  elsif n == 2
+    return 1
+  else
+    return (fib(n-1) + fib(n-2))
+  end
+end
+
+def flatten(array, result = [])
+  array.each do |element|
+    if element.kind_of?(Array)
+      flatten(element, result)
+    else
+      result << element
+    end
+  end 
+  result
+end
+
+def flatten_array(array, flat_array = [])
+  array.each do |item|
+    if item.is_a?(Integer)
+      flat_array.push(item)
+    elsif item.is_a?(Array)
+      flatten_array(item, flat_array)
+    else
+      puts "#{item} is not an integer or an array."
+    end
+  end
+  flat_array
+end
+
+
+
+
+p flatten_array([[1, 2], [3, 4]] )
+p flatten([[1, [8, 9]], [3, 4]])
+
 
