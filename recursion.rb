@@ -33,15 +33,10 @@ def bottle_counter(n)
   end
 end
 
-def fib(n)
-  if n == 1
-    return 1
-  elsif n == 2
-    return 1
-  else
-    return (fib(n-1) + fib(n-2))
-  end
+def my_fib(n)
+  n < 3 ? 1 : (my_fib(n-1) + my_fib(n-2))
 end
+
 
 def flatten(array, result = [])
   array.each do |element|
@@ -70,7 +65,5 @@ end
 
 
 
-p flatten_array([[1, 2], [3, 4]] )
-p flatten([[1, [8, 9]], [3, 4]])
-
-
+puts my_fib(4)
+puts my_fib(6)
